@@ -37,3 +37,11 @@
 
 ##### 按显示器设置显示参数
 选择您希望通过 AutoActions 控制的显示器。
+
+# 汉化界面:
+---
+![默认界面](https://github.com/user-attachments/assets/8f4e2875-433f-403e-8f83-01cd00440bea)
+![配置文件](https://github.com/user-attachments/assets/dcddc6d4-8c2a-4814-bc1f-c9441bc94d9d)
+![应用界面](https://github.com/user-attachments/assets/84339f12-8f1d-484e-8bac-6f8d7b990b8c)
+![显示器界面](https://github.com/user-attachments/assets/4c92f8a6-675c-42db-8a49-4de4712ce87f)
+![功能设置](https://github.com/user-attachments/assets/c2f3048f-03ba-45ca-a3a6-d21a1f545406)
