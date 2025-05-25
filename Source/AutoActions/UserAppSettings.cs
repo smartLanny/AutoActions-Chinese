@@ -6,8 +6,10 @@ using CodectoryCore.UI.Wpf;
 using Newtonsoft.Json;
 using System;
 using System.Collections.ObjectModel;
+using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Windows;
 using System.Xml.Serialization;
 
@@ -21,12 +23,13 @@ namespace AutoActions
         private bool _globalAutoActions = true;
         private bool _createLogFile = false;
         private bool _autoStart = false;
-        private bool _autoUpdate = true;
+        private bool _autoUpdate = false;
         private bool _startMinimizedToTray;
         private bool _closeToTray;
-        private bool _checkForNewVersion = true;
+        private bool _checkForNewVersion = false;
         private bool _hideSplashScreenOnStartup = false;
         private bool _hideSplashScreenOnAutoUpdate = false;
+        private string _selectedLanguage = "zh-CN";
 
         readonly object _audioDevicesLock = new object();
         private Guid _defaultProfileGuid = Guid.Empty;
@@ -72,6 +75,47 @@ namespace AutoActions
 
         [JsonProperty]
         public bool CheckForNewVersion { get => _checkForNewVersion; set { _checkForNewVersion = value; OnPropertyChanged(); } }
+
+        [JsonProperty]
+        public string SelectedLanguage
+        {
+            get => _selectedLanguage;
+            set
+            {
+                if (_selectedLanguage != value)
+                {
+                    _selectedLanguage = value;
+                    OnPropertyChanged();
+                    
+                    // 应用语言设置
+                    try
+                    {
+                        CultureInfo culture = new CultureInfo(value);
+                        ProjectResources.ProjectLocales.Culture = culture;
+                        
+                        // 设置当前线程和默认线程的文化信息
+                        CultureInfo.DefaultThreadCurrentCulture = culture;
+                        CultureInfo.DefaultThreadCurrentUICulture = culture;
+                        Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture(culture.Name);
+                        Thread.CurrentThread.CurrentUICulture = culture;
+
+                        // 重新加载界面资源
+                        System.Windows.Application.Current.Dispatcher.InvokeAsync(() =>
+                        {
+                            ResourceDictionary dict = new ResourceDictionary();
+                            System.Windows.Application.Current.Resources.MergedDictionaries.Clear();
+                            System.Windows.Application.Current.Resources.MergedDictionaries.Add(dict);
+                        });
+                        
+                        Globals.Logs.Add($"已切换语言: {culture.DisplayName}", false);
+                    }
+                    catch (Exception ex)
+                    {
+                        Globals.Logs.AddException(ex);
+                    }
+                }
+            }
+        }
 
 
         [JsonProperty(Order = 2)]
