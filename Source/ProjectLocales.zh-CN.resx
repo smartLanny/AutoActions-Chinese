@@ -716,6 +716,9 @@
   <data name="Status" xml:space="preserve">
     <value>状态</value>
   </data>
+  <data name="Language" xml:space="preserve">
+    <value>语言</value>
+  </data>
   <data name="Updating" xml:space="preserve">
     <value>正在更新 AutoActions...</value>
   </data>
