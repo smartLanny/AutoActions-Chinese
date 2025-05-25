@@ -1,41 +1,39 @@
-# AutoActions
+## 说明
 
-With AutoActions, you can created profiles which included several actions. You can change display settings, set default audio devices or launch any other script or program.
-Once you have added an application and assigned a profile to it, AutoActions will monitor this application and will run the actions based on the assigned profile.
+ [[AutoActions](https://github.com/Codectory/AutoActions)] 的汉化版，增加了中文支持，保留了德语和英语选项。
+
+---
+
+通过 AutoActions，您可以创建包含多个操作的配置文件。您可以更改显示设置（尤其是HDR）、设置默认音频设备或启动任何其他脚本或程序。
+设置后，AutoActions 将监控此应用并根据分配的配置文件运行操作。比如说内置的一个配置文件是开关HDR，绑定给2077，打开2077就自动开HDR，关闭2077就会自动退出。
+
+## 功能
+
+##### 开机自启
+当前用户登录后，AutoActions 将自动启动。
 
 
-##  Features
+##### 配置文件
+您可以创建配置文件，其中包含在应用程序事件发生时要运行的操作。可能的事件有：“已启动”、“已关闭”、“获得焦点”、“失去焦点”。
 
-##### Auto-Start
-AutoActions will start, after the current user has logged on. 
-##### Profiles
-You can create profiles, which contain actions to be run on application events. The possible events are "Started", "Closed", "Got focus", "Lost focus".
-##### Profile actions
-###### Display action
-Toggle HDR,  change resolution, refresh rate and color depth
-###### Audio action
-Audio actions change default playback or record audio devices.
-###### Run or close program action
-Run any program or script as you want or kill running proccesses.
-###### Reference action
-Reference action are referencing to an existing profile.
-##### Application assignment
-You can assign one profile to different applications. 
-##### Action shortcuts
-Create action shortcuts and access them in the status view or from the tray menu.
-##### Compatibility mode (Restart)
-In some games, e.g. Cyberpunk 2077,  you don't see any HDR options in settings, when HDR was not enabled in Windows before the game was launched. Therefore, the application kills the process on the first occurence, activates hdr and restarts the process.  
-##### Display settings per monitor
-Select which monitors you want to control with AutoActions
+##### 配置文件操作
+###### 显示操作
+切换 HDR、更改分辨率、刷新率和颜色深度。
+###### 音频操作
+音频操作可更改默认的播放或录制音频设备。
+###### 运行或关闭程序操作
+根据您的需要运行任何程序或脚本，或者终止正在运行的进程。
+###### 引用操作
+引用操作指向一个已存在的配置文件。
 
-## Screenshots:
+##### 应用程序分配
+您可以将一个配置文件分配给不同的应用程序。
 
-![ScreenShot](https://raw.github.com/Codectory/AutoActions/main/Screenshots/Status_1-9-6.png)
+##### 操作快捷方式
+创建操作快捷方式，并在状态视图或托盘菜单中访问它们。
 
-![ScreenShot](https://raw.github.com/Codectory/AutoActions/main/Screenshots/Profiles_1-9-6.png)
+##### 兼容模式（重启）
+在某些游戏中，例如《赛博朋克 2077》（Cyberpunk 2077），如果在游戏启动前 Windows 中的 HDR 功能未启用，您在游戏设置中将看不到任何 HDR 选项。因此，该应用程序会在首次检测到此情况时终止游戏进程，激活 HDR，然后重新启动游戏进程。
 
-![ScreenShot](https://raw.github.com/Codectory/AutoActions/main/Screenshots/Applications_1-9-6.png)
-
-![ScreenShot](https://raw.github.com/Codectory/AutoActions/main/Screenshots/Monitors_1-9-6.png)
-
-![ScreenShot](https://raw.github.com/Codectory/AutoActions/main/Screenshots/Settings_1-9-6.png)
+##### 按显示器设置显示参数
+选择您希望通过 AutoActions 控制的显示器。
